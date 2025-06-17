@@ -1,0 +1,25 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - master  # change to your branch name if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.CPANEL_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H zeus.com.ng >> ~/.ssh/known_hosts
+
+      - name: Sync files to cPanel
+        run: |
+          rsync -avz --delete ./ zeuscomn@zeus.com.ng:/home/zeuscomn/public_html/fathersday2025.zeus.com.ng/
