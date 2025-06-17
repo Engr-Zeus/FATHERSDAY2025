@@ -3,7 +3,7 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-      - main  # change to your branch name if different
+      - main  # or 'master'
 
 jobs:
   deploy:
@@ -25,4 +25,4 @@ jobs:
 
       - name: Sync files to cPanel using SCP
         run: |
-          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes -r * zeuscomn@zeus.com.ng:/home/zeuscomn/public_html/fathersday2025.zeus.com.ng/
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes -r * zeuscomn@zeus.com.ng:public_html/fathersday2025.zeus.com.ng/
