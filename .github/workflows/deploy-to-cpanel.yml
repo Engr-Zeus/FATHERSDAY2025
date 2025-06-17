@@ -20,6 +20,9 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H zeus.com.ng >> ~/.ssh/known_hosts
 
+      - name: Test SSH connection
+        run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes zeuscomn@zeus.com.ng "echo SSH connection successful"
+
       - name: Sync files to cPanel
         run: |
-          rsync -avz --delete ./ zeuscomn@zeus.com.ng:/home/zeuscomn/public_html/fathersday2025.zeus.com.ng/
+          rsync -avz -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes -vvv" --delete ./ zeuscomn@zeus.com.ng:/home/zeuscomn/public_html/fathersday2025.zeus.com.ng/
