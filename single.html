@@ -990,5 +990,34 @@
     });
   </script>
 
+  <script>
+    function isTouchDevice() {
+      return (('ontouchstart' in window) ||
+              (navigator.maxTouchPoints > 0) ||
+              (navigator.msMaxTouchPoints > 0));
+    }
+
+    if (isTouchDevice()) {
+      document.querySelectorAll('.img-fluid').forEach(function(img) {
+        img.style.filter = 'grayscale(100%)';
+      });
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.filter = 'grayscale(0%)';
+            }, 2000); // 2 seconds delay
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.img-fluid').forEach(img => {
+        observer.observe(img);
+      });
+    }
+  </script>
+
 </body>
 </html>
