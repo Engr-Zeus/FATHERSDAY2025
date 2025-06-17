@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CMO | Welcome</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at center, #0b1a2e 0%, #08121f 100%);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease;
+    }
+
+    img.logo {
+      width: 160px;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 0 8px rgba(0, 150, 255, 0.3));
+    }
+
+    h1 {
+      font-size: 2.0rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1.5px;
+      color: #e0e0e0;
+      text-shadow: 0 0 8px rgba(0, 150, 255, 0.3);
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      letter-spacing: 1.5px;
+      color: #e0e0e0;
+      text-shadow: 0 0 8px rgba(0, 150, 255, 0.3);
+    }
+
+    .enter-button {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border: 2px solid #00aaff;
+      border-radius: 40px;
+      background: transparent;
+      color: #00aaff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .enter-button:hover {
+      background: #00aaff;
+      color: #000;
+      box-shadow: 0 0 15px #00aaff;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/Logo.png" alt="CMO Logo" class="logo" />
+    <h1>Welcome to the 2025 Fathers Day Gallery</h1>
+    <h2>St. John Mary Vianney Parish Kubwa</h2>
+    <a href="single.html">
+      <button class="enter-button">Enter Gallery</button>
+    </a>
+  </div>
+</body>
+</html>
