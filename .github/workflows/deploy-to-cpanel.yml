@@ -23,6 +23,6 @@ jobs:
       - name: Test SSH connection
         run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes zeuscomn@zeus.com.ng "echo SSH connection successful"
 
-      - name: Sync files to cPanel
+      - name: Sync files to cPanel using SCP
         run: |
-          rsync -avz -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes -vvv" --delete ./ zeuscomn@zeus.com.ng:/home/zeuscomn/public_html/fathersday2025.zeus.com.ng/
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=yes -r * zeuscomn@zeus.com.ng:/home/zeuscomn/public_html/fathersday2025.zeus.com.ng/
